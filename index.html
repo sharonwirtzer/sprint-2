@@ -4,88 +4,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sharon wirtzer</title>
+    <title>Meme Maker</title>
     <link href="css/main.css" rel="stylesheet" />
-    <div class="topnav">
-        <a class="active"><img src="https://img.icons8.com/pastel-glyph/64/000000/planet-on-the-dark-side.png" />Meme
-            Maker</a>
-        <a onclick="galleryOn()">Gallery</a>
-        <a href="">Memes</a>
-        <a href="">About</a>
-
-    </div>
-
-
-
 </head>
 
+<body onload="init()"></body>
 
-<body onload="init()">
+<div class="main-container" onclick="toggleMenu()"></div>
+<header>
+    <nav class="topnav">
+
+        <div class="active"><img src="https://img.icons8.com/pastel-glyph/64/000000/planet-on-the-dark-side.png" />Meme
+            Maker</div>
+
+        <a onclick="">About</a>
+        <a onclick="galleryOn()">Gallery</a>
+
+        <button onclick="toggleMenu()" class="menu-button">&#9776;</button>
+        </div>
+    </nav>
+</header>
+</div>
+
+<div class="container" style="display: flex; margin: 0 auto; width: 50%;">
+    <canvas id="my-canvas" height="550" width="550"></canvas>
+
+    <div class="btn-group">
+
+        <div class="text">
+
+            <input oninput="onShowText(this.value)" id="textBox" type="text" class="Input-text"
+                placeholder="Your text here">
+
+        </div>
+
+        <button onclick="alignLeft()"><img src="icons/align-to-left.png" height="30" width="30" /></button>
+        <button onclick="centerText()"><img src="icons/center-text-alignment.png" height="30" width="30" /></button>
+        <button onclick="alignRight()"><img src="icons/align-to-right.png" height="30" width="30" /></button>
+        <button onclick="increaseFont()"><img src="icons/increase font - icon.png" height="30" width="30" /></button>
+        <button onclick="clearCanvas()"><img src="icons/trash.png" height="30" width="30" /></button>
+        <button onclick="decreaseFont()"><img src="icons/decrease font - icon.png" height="30" width="30" /></button>
+        <button onclick=""><input type="color" id="color"></button>
+        <button onclick=""><a href="#" onclick="downloadCanvas(this)">⬇️</a></button>
 
 
-    <div class="container" style="display: flex; margin: 0 auto; width: 50%;">
-        <canvas id="my-canvas" height="550" width="550" onclick="draw(event)"></canvas>
 
 
 
 
-        <div class="btn-group">
+        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+            <input name="img" id="imgData" type="hidden" />
+            <button class="btn" type="submit" height="30" width="30">Publish</button>
+            <button class="share-container"> </button>
+        </form>
 
-            <button height="30" width="30"> <input id="textBox" type="text"></button>
-            <button onclick="drawText()"><img src="icons/add.png" height="30" width="30" /></button>
-            <button onclick="setShape('rect')"><img src="icons/align-to-left.png" height="30" width="30" /></button>
-            <button onclick="setShape('text')"><img src="icons/align-to-right.png" height="30" width="30" /></button>
-            <button onclick="setShape('line')"><img src="icons/center-text-alignment.png" height="30"
-                    width="30" /></button>
-            <button onclick="clearCanvas()"><img src="icons/trash.png" height="30" width="30" /></button>
-            <button onclick="addTextBox()"><img src="icons/increase font - icon.png" height="30" width="30" /></button>
-            <button onclick=""><img src="icons/paint-board-and-brush.png" height="30" width="30" /></button>
-            <button onclick=""><img src="icons/text stroke.png" height="30" width="30" /></button>
-            <button onclick=""><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png" height="30"
-                    width="30" /></button>
-            <button onclick=""><img src="icons/decrease font - icon.png" height="30" width="30" /></button>
+        <div class="emoji">
+            <div class="slideshow-container">
 
-            <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+                <div class="mySlides">
+                    <button onclick=" drawE2()">🍌</button>
+
+                </div>
+
+                <div class="mySlides">
+                    <button onclick=" drawE1()">💁‍♀️</button>
+                </div>
+
+                <div class="mySlides">
+                    <button onclick=" drawE3()">❤️</button>
+                </div>
+
+                <div class="mySlides">
+                    <button onclick=" drawE4()">🙄</button>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+            </div>
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div id="meme-img">
+    <div class="row">
+        <div class="column" style="display:block;    margin-left: 150px;"> </div>
+
+        <div class="about-container">
+            <img class="me" src="img/me.JPG">
+
+            <p class="text-muted">
+            <h4>Sharon Wirtzer</h4>
+            Hey! I’m Sharon,
+            33 years old and former cook, in second year of Business Administration.</p>
 
         </div>
 
     </div>
+</div>
 
-
-
-    <div id="myDIV">
-        <button onclick=""><img src="icons/search-icon.png" height="30" width="30"><input id="" type="search"></button>
-        <div class="row">
-            <div class="column" style="display:block;">
-
-            </div>
-        </div>
-
-
-
-
-
-
-        <div class="container">
-            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-            <img id="expandedImg" style="width:100%">
-            <div id="imgtext"></div>
-        </div>
-
-
-
-        <script src="js/main.js"></script>
-        <script src="js/upload-service.js"></script>
-
-
-</body>
-
+<script src="js/main.js"></script>
+<script src="js/upload-service.js"></script>
 
 <footer>
-
     <h1>Meme Maker</h1>
     <h3>all rights reserved 2021</h3>
-
 </footer>
+</body>
 
-</html>
+</html> 
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,10 @@
-
+'use strict'
 
 var gElCanvas;
 var gCtx;
 const elGallery = document.querySelector('.column')
 const textBox = document.getElementById('textBox')
+
 
 function clearCanvas() {
 
@@ -30,23 +31,26 @@ const imgArray = [
     "./img/16.jpg",
     "./img/17.jpg",
     "./img/18.jpg",
-    "./img/19.jpg"
+
 ]
 
 function init() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
+
     for (let i = 0; i < imgArray.length; i++) {
 
         elGallery.innerHTML += '<img widht="278px" height="353px" src="' + imgArray[i] + '" onclick="drawImg(this.src)">'
     }
+
     if (elGallery.style.display === "block") {
         gElCanvas.style.display = "none";
         document.querySelector('.btn-group').style.display = "none";
+
     } else {
         gElCanvas.style.display = "none";
-    }
 
+    }
 }
 
 function drawImg(elImg) {
@@ -57,8 +61,7 @@ function drawImg(elImg) {
     }
     gElCanvas.style.display = "block";
     elGallery.style.display = "none"
-    document.querySelector('.btn-group').style.display = "block";
-
+    document.querySelector('.btn-group').style.display = "table";
 }
 
 function galleryOn() {
@@ -66,69 +69,123 @@ function galleryOn() {
     elGallery.style.display = "block"
     gElCanvas.style.display = "none";
     document.querySelector('.btn-group').style.display = "none";
-
-
-
 }
 
+function downloadCanvas(elLink) {
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'Meme Make'
+}
 
-
-function drawText(){
+ function drawText(){
     var ctx = gElCanvas.getContext("2d");
-   
     ctx.font = "20px Georgia";
     ctx.fillText(textBox.value, 10, 50);
     textBox.value=""
+   
+ 
+}
+ 
+function onShowText() {
+    var ctx = gElCanvas.getContext("2d");
+    ctx.font = "42px Georgia";
+    ctx.fillText(textBox.value, 78, 65);
+    textBox.value += ""
 
-    
-    // ctx.font = "30px Verdana";
-    // Create gradient
-    // var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
-    // gradient.addColorStop("0", "magenta");
-    // gradient.addColorStop("0.5", "blue");
-    // gradient.addColorStop("1.0", "red");
-    
+}
 
+function increaseFont() {
     
+    var ctx = gElCanvas.getContext("2d");
+    ctx.font = "90px Georgia";
+    ctx.fillText(textBox.value, 78, 65);
+    textBox.value += ""
+   onShowText()
+}
+
+function decreaseFont() {
+  
+    var ctx = gElCanvas.getContext("2d");
+    ctx.font = "8px Georgia";
+    ctx.fillText(textBox.value, 78, 65);
+    textBox.value += ""
+    onShowText()
+}
+
+function drawE1() {
+    var ctx = gElCanvas.getContext("2d");
+    ctx.font = "40px Georgia";
+    ctx.fillText(textBox.value, 78, 65);
+    textBox.value += "🤦‍♀️"
+
+}
+
+function drawE2() {
+    var ctx = gElCanvas.getContext("2d");
+    ctx.font = "40px Georgia";
+    ctx.fillText(textBox.value, 78, 65);
+    textBox.value += "🍌"
+
+}
+function drawE3() {
+    var ctx = gElCanvas.getContext("2d");
+    ctx.font = "40px Georgia";
+    ctx.fillText(textBox.value, 78, 65);
+    textBox.value += "❤️"
+
+}
+function drawE4() {
+    var ctx = gElCanvas.getContext("2d");
+    ctx.font = "40px Georgia";
+    ctx.fillText(textBox.value, 78, 65);
+    textBox.value += "🙄"
+
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
 }
 
 
+function alignLeft(){
+    
+    if (textBox.value = "") {
+        textBox.value==alignRight; 
+    }
+  
+      
+}
 
+function centerText(){
 
+}
 
+function alignRight(){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
