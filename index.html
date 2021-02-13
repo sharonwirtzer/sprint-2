@@ -33,11 +33,10 @@
 
         <div class="text">
 
-            <input oninput="onShowText(this.value)" id="textBox" type="text" class="Input-text"
+            <input oninput="onShowText(this.value)" onfocus="saveCtx()" onfocusout="setText()" id="textBox" type="text" class="Input-text"
                 placeholder="Your text here">
 
         </div>
-
         <button onclick="alignLeft()"><img src="icons/align-to-left.png" height="30" width="30" /></button>
         <button onclick="centerText()"><img src="icons/center-text-alignment.png" height="30" width="30" /></button>
         <button onclick="alignRight()"><img src="icons/align-to-right.png" height="30" width="30" /></button>
@@ -103,13 +102,13 @@
         <div class="about-container">
             <img class="me" src="img/me.JPG">
 
-            <p class="text-muted">
-            <h4>Sharon Wirtzer</h4>
-            Hey! I’m Sharon,
+            <div  class="text-muted">
+            <h3>Sharon Wirtzer</h3>
+           <p> Hey! I’m Sharon,
             33 years old and former cook, in second year of Business Administration.</p>
 
         </div>
-
+    </div>
     </div>
 </div>
 
